@@ -12,4 +12,12 @@ class CategoryController extends Controller
 
         return view('categories.index', compact('categories'));
     }
+
+    public function show(){
+
+    }
+
+    public function edit(){
+        
+    }
 }

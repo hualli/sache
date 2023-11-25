@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('category.index')" :active="request()->routeIs('category.index')">
+                    <x-nav-link :href="route('categories.index')" :active="request()->routeIs('category.index')">
                         Categor&iacute;as
                     </x-nav-link>
                 </div>
@@ -79,7 +79,7 @@
         </div>
 
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('category.index')" :active="request()->routeIs('category.index')">
+            <x-responsive-nav-link :href="route('categories.index')" :active="request()->routeIs('category.index')">
                 Categor&iacute;as
             </x-responsive-nav-link>
         </div>

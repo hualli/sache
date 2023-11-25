@@ -5,29 +5,54 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
+    <div class='container '>
+        <div class='row'>
+            <div class='col-12'>
+                <a href="{{ route('categories.create') }}" class="btn btn-primary">Agregar</a>
+            </div>
+        </div>
+        <div class='row'>
+            <div class='col-12'>
+            <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
+                
+                <a href="{{ route('categories.create') }}" class="btn btn-primary">Agregar</a>
+            
 
-                    <table class="table-auto w-full">
-                        <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
-                        <tr>
-                            <th class="px-4 py-2">#</th>
-                            <th class="px-4 py-2">Nombre</th>
-                            <th class="px-4 py-2">Acciones</th>
-                        </tr>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nombre</th>
+                                <th style="width:30px;"></th>
+                                <th style="width:30px;">Acciones</th>
+                                <th style="width:30px;"></th>
+                            </tr>
                         </thead>
-                        <tbody class="text-sm divide-y divide-gray-100">
+                        <tbody>
                         <?php
                         $i = 1;
                         ?>
                         @forelse ($categories as $category)
                             <tr>
-                                <td class="border px-4 py-2">{{$i}}</td>
-                                <td class="border px-4 py-2">{{ $category->name }}</td>
+                                <td>{{$i}}</td>
+                                <td>{{ $category->name }}</td>
 
-                                <td class="border px-4 py-2">#</td>
+                                <td style="width:30px;">
+                                    <a href="{{ route('categories.show', $category) }}" class="btn btn-success">Ver</a>
+                                </td>
+                                <td style="width:30px;">
+                                    <a href="{{ route('categories.edit', $category) }}" class="btn btn-warning">Editar</a>
+                                </td>
+                                <td style="width:30px;">
+                                    <form action="{{ route('categories.destroy', $category) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                                    </form>
+                                </td>
                             </tr>
                                 <?php
                                 $i++;
@@ -44,4 +69,9 @@
             </div>
         </div>
     </div>
+            </div>
+        </div>
+    </div>
+
+    
 </x-app-layout>
